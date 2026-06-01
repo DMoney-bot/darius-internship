@@ -13,16 +13,21 @@ const HotCollections = () => {
 
   //connecting to API
   useEffect(() => {
+    console.log('fetching...')
     fetch(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections",
     )
-      .then((res) => res.json())
+      .then((res) => {
+        console.log('got response: ', res.status)
+        return res.json()
+      })
       .then((data) => {
+        console.log('got data', data)
         setCollections(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Failed to fetch: ", err);
+        console.log("Error", err)
         setLoading(false);
       });
   }, []);
@@ -38,7 +43,7 @@ const HotCollections = () => {
             </div>
           </div>
           {loading ? (
-            <OwlCarousel className="owl-theme" margin={4} nav>
+            <OwlCarousel key="Loading" className="owl-theme" loop margin={10} nav>
               {new Array(4).fill(0).map((_, index) => (
                 <div className="nft_coll" key={index}>
                   <div className="nft_wrap">
@@ -55,7 +60,7 @@ const HotCollections = () => {
               ))}
             </OwlCarousel>
           ) : (
-            <OwlCarousel className="owl-theme" margin={4} nav>
+            <OwlCarousel key="Loaded" className="owl-theme" loop margin={10} nav>
               {collections.map((item) => (
                 <div className="nft_coll" key={item.id}>
                   <div className="nft_wrap">
