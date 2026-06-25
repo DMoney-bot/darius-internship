@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import NFT from "../../images/nft.png";
 import backgroundImage from "../../images/bg-shape-1.jpg";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   return (
     <section
       id="section-hero"
@@ -36,7 +42,9 @@ const Landing = () => {
               <div className="mb-sm-30"></div>
             </div>
             <div className="col-md-6 xs-hide">
-              <img src={NFT} className="lazy img-fluid" alt="" />
+              <div data-aos="fade-up" data-aos-duration="1000">
+                <img src={NFT} className="lazy img-fluid" alt="" />
+              </div>
             </div>
           </div>
         </div>
