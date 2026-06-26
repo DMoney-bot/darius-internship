@@ -51,54 +51,32 @@ const TopSellers = () => {
             </>
           ) : (
             <>
-              <div className="col-md-12">
-                <ol className="author_list">
-                  {seller.map((item) => (
-                    <li key={item.id}>
-                      <div className="author_list_pp">
-                        <Link to={`/author/${item.authorId}`}>
-                          <img
-                            src={item.authorImage}
-                            alt={item.authorName}
-                            className="lazy pp-author"
-                          />
-                          <i className="fa fa-check"></i>
-                        </Link>
-                      </div>
-                      <div className="author_list_info">
-                        <Link to="/author">{item.authorName}</Link>
-                        <span>{item.price} ETH</span>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
+              <div data-aos="zoom-in-up" data-aos-duration="1200">
+                <div className="col-md-12">
+                  <ol className="author_list">
+                    {seller.map((item) => (
+                      <li key={item.id}>
+                        <div className="author_list_pp">
+                          <Link to={`/author/${item.authorId}`}>
+                            <img
+                              src={item.authorImage}
+                              alt={item.authorName}
+                              className="lazy pp-author"
+                            />
+                            <i className="fa fa-check"></i>
+                          </Link>
+                        </div>
+                        <div className="author_list_info">
+                          <Link to="/author">{item.authorName}</Link>
+                          <span>{item.price} ETH</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </>
           )}
-          {/* 
-
-          <div className="col-md-12">
-            <ol className="author_list">
-              {new Array(12).fill(0).map((_, index) => (
-                <li key={index}>
-                  <div className="author_list_pp">
-                    <Link to="/author">
-                      <img
-                        className="lazy pp-author"
-                        src={AuthorImage}
-                        alt=""
-                      />
-                      <i className="fa fa-check"></i>
-                    </Link>
-                  </div>
-                  <div className="author_list_info">
-                    <Link to="/author">{index.authorName}</Link>
-                    <span>{index.price} ETH</span>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div> */}
         </div>
       </div>
     </section>
