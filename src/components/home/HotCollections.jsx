@@ -51,7 +51,11 @@ const HotCollections = () => {
               loop
               margin={10}
               nav
-              items={4}
+              responsive={{
+                0: { items: 1 },
+                768: { items: 2 },
+                1024: { items: 4 },
+              }}
             >
               {new Array(4).fill(0).map((_, index) => (
                 <div className="nft_coll" key={index}>
@@ -76,7 +80,11 @@ const HotCollections = () => {
                 loop
                 margin={10}
                 nav
-                items={4}
+                responsive={{
+                  0: { items: 1 },
+                  768: { items: 2 },
+                  1024: { items: 4 },
+                }}
               >
                 {collections.map((item) => (
                   <div className="nft_coll" key={item.id}>
